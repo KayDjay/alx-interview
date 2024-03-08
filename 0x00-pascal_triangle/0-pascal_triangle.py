@@ -1,4 +1,14 @@
+#!/usr/bin/python3
+"""Pascal's Triangle"""
 def pascal_triangle(n):
+    """Returns the pascal triangle for the given number.
+
+    Args:
+        n (int): The number for which the pascal's triangle is to be generated.
+
+    Returns:
+        list: The pascal triangle for the given number.
+    """
     if n <= 0:
         return []
 
