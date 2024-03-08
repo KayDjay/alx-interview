@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Pascal's Triangle"""
+
 def pascal_triangle(n):
     """Returns the pascal triangle for the given number.
 
