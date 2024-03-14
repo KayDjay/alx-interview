@@ -1,28 +1,23 @@
 def canUnlockAll(boxes):
-    # Create a set to keep track of the keys we have
-    keys = set([0])
+    """
+    Determines if all boxes can be unlocked given the provided key configuration.
 
-    # Create a set to keep track of the boxes we have visited
-    visited = set()
+    Args:
+        boxes: A list of lists where each element represents a box. Inner lists 
+               contain keys that can unlock other boxes.
 
-    # Start with the first box
-    stack = [0]
+    Returns:
+        True if all boxes can be unlocked, False otherwise.
+    """
 
-    # Iterate through the stack until it's empty
-    while stack:
-        # Pop the top box from the stack
-        box = stack.pop()
+    seen = {0}  # Set of opened box indices
+    queue = [0]  # Queue of box indices to process
 
-        # Mark the box as visited
-        visited.add(box)
+    while queue:
+        current_box = queue.pop(0)  # Get the next box to process
+        for key in boxes[current_box]:
+            if key not in seen and key < len(boxes):  # Check if key is valid and new
+                seen.add(key)  # Mark the box as opened
+                queue.append(key)  # Add the box to the queue for further processing
 
-        # Check if we have the key to open the box
-        if box in keys:
-            # Add the keys in the box to our set of keys
-            keys.update(boxes[box])
-
-            # Add the unvisited boxes to the stack
-            stack.extend(set(boxes[box]) - visited)
-
-    # Check if we have visited all the boxes
-    return len(visited) == len(boxes)
+    return len(seen) == len(boxes)  # Check if all boxes have been opened
