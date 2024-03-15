@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+""" model for Lockboxes """
+
 def canUnlockAll(boxes):
     """
     Determines if all boxes can be unlocked given the provided key configuration.
@@ -10,14 +13,21 @@ def canUnlockAll(boxes):
         True if all boxes can be unlocked, False otherwise.
     """
 
-    seen = {0}  # Set of opened box indices
-    queue = [0]  # Queue of box indices to process
-
+    # Set of opened box indices
+    seen = {0}
+    # Queue of box indices to process
+    queue = [0]
+     
     while queue:
-        current_box = queue.pop(0)  # Get the next box to process
+        # Get the next box to process
+        current_box = queue.pop(0) 
         for key in boxes[current_box]:
-            if key not in seen and key < len(boxes):  # Check if key is valid and new
-                seen.add(key)  # Mark the box as opened
-                queue.append(key)  # Add the box to the queue for further processing
+            # Check if key is valid and new
+            if key not in seen and key < len(boxes): 
+                # Mark the box as opened
+                seen.add(key)  
+                # Add the box to the queue for further processing
+                queue.append(key)
 
-    return len(seen) == len(boxes)  # Check if all boxes have been opened
+    # Check if all boxes have been opened
+    return len(seen) == len(boxes)
