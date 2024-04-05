@@ -1,12 +1,11 @@
-#!/usr/bin/python3
-"""
-Main file for testing
-"""
+#!/usr/bin/env python3
 
-minOperations = __import__('0-minoperations').minOperations
+import asyncio
 
-n = 4
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 
-n = 12
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+
+async def main():
+    print(await async_comprehension())
+
+asyncio.run(main())
