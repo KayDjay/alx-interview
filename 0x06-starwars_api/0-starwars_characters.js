@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const request = require('request');
+
 /**
  * Retrieves and prints the names of characters from a Star Wars movie.
  * @param {number} movieId - The ID of the Star Wars movie.
