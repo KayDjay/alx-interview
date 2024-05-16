@@ -2,8 +2,10 @@
 
 """ The prime game model between Ben and Maria """
 
+
 def isWinner(x, nums):
     """ Function to get the winner """
+
     def isPrime(num):
         """this method check if the number is a prime number"""
         if num < 2:
